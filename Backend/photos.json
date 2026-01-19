@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-01-18T22:48:58Z",
+  "albums": [
+    {
+      "id": "2024_12_25-merda",
+      "date": "2024-12-25",
+      "location": "merda",
+      "path": "2024_12_25-merda",
+      "count": 2,
+      "images": [
+        "2024_12_25-merda-001.webp",
+        "2024_12_25-merda-002.webp"
+      ]
+    },
+    {
+      "id": "2023_12_23-Murcia",
+      "date": "2023-12-23",
+      "location": "Murcia",
+      "path": "2023_12_23-Murcia",
+      "count": 2,
+      "images": [
+        "2023_12_23-Murcia-001.webp",
+        "2023_12_23-Murcia-002.webp"
+      ]
+    },
+    {
+      "id": "2023_01_02-Gran_canaria",
+      "date": "2023-01-02",
+      "location": "Gran_canaria",
+      "path": "2023_01_02-Gran_canaria",
+      "count": 2,
+      "images": [
+        "2023_01_02-Gran_canaria-001.webp",
+        "2023_01_02-Gran_canaria-002.webp"
+      ]
+    }
+  ]
+}
