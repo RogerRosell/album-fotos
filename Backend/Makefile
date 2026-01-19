@@ -23,7 +23,7 @@ setup:
 	$(PIP) install -r requirements.txt
 
 run:
-	$(UVICORN) app.main:app --reload
+	$(UVICORN) app.main:app --reload --reload-exclude photos/
 
 rebuild-index:
 	$(PYTHON) -m app.indexing
