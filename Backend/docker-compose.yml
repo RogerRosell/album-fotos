@@ -5,7 +5,7 @@ services:
     build: .
     container_name: album-fotos-backend
     ports:
-      - "8001:8000"
+      - "8003:8003"
     volumes:
       - ./photos:/app/photos
       - ./photos.json:/app/photos.json
@@ -13,7 +13,7 @@ services:
       - PHOTOS_ROOT=/app/photos
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8001/api/photos"]
+      test: ["CMD", "curl", "-f", "http://localhost:8003/api/photos"]
       interval: 30s
       timeout: 10s
       retries: 3
