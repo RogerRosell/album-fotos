@@ -20,7 +20,7 @@ RUN npm run build -- --mode production
 
 ### STAGE 2: Serve ###
 # Use a lightweight Nginx image to serve the static files
-FROM nginx:1.25-alpine
+# FROM nginx:1.25-alpine
 
 # Copy the built static files from the build stage to the Nginx public html directory
 COPY --from=builder /app/dist /usr/share/nginx/html
