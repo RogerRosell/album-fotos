@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    container_name: album-fotos-backend
+    ports:
+      - "8000:80"
+    volumes:
+      - ./photos:/app/photos
+    environment:
+      - PHOTOS_ROOT=/app/photos
+    restart: unless-stopped

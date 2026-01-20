@@ -17,8 +17,8 @@ COPY app/ ./app/
 COPY pyproject.toml ./
 # COPY README.md ./ 
 
-# Create photos directory
-RUN mkdir -p photos
+# Create photos directory and initialize photos.json
+RUN mkdir -p photos && echo '{"albums": []}' > photos.json
 
 EXPOSE 80
 
