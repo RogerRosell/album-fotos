@@ -5,7 +5,7 @@ services:
     build: .
     container_name: album-fotos-backend
     ports:
-      - "8003:80"
+      - "8000:80"
     volumes:
       - ./photos:/app/photos
       - ./photos.json:/app/photos.json
