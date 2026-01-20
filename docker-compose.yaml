@@ -1,14 +1,14 @@
 services:
   # Your FastAPI Backend Service
   backend:
-    build: ./backend
+    build: ./Backend
     container_name: fastapi_backend      
     networks:
       - app-network
 
   # The React Frontend & NGINX Reverse Proxy Service
   frontend:
-    build: ./frontend
+    build: ./Frontend
     container_name: react_frontend
     ports:
       # Map port 3000 on your host machine to port 80 inside the container (where Nginx is listening)
