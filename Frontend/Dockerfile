@@ -1,6 +1,6 @@
 ### STAGE 1: Build ###
 # Use a Node.js image to build the React app
-FROM node:20-alpine AS build
+FROM node:20-alpine AS builder
 
 # Set the working directory
 WORKDIR /app
@@ -20,10 +20,10 @@ RUN npm run build
 
 ### STAGE 2: Serve ###
 # Use a lightweight Nginx image to serve the static files
-# FROM nginx:1.25-alpine
+FROM nginx:1.25-alpine
 
 # Copy the built static files from the build stage to the Nginx public html directory
-COPY --from=build /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 # Copy our custom Nginx configuration file
 # COPY nginx.conf /etc/nginx/conf.d/default.conf
