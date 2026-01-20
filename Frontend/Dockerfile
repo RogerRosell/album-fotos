@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # Build the application for production
-RUN npm run build
+RUN npm run build -- --mode production
 
 ### STAGE 2: Serve ###
 # Use a lightweight Nginx image to serve the static files
