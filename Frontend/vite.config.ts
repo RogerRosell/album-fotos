@@ -14,15 +14,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  server: {
-    proxy: {
-      "/photos": "http://127.0.0.1:8000",
-      "/photos.json": "http://127.0.0.1:8000",
-      "/upload": "http://127.0.0.1:8000",
-      '/api': {
-        target: 'http://127.0.0.1:8000',
-        changeOrigin: true,
-      },
-    },
-  },
+  // server: {
+  //   proxy: {
+  //     "/photos": "http://127.0.0.1:8000",
+  //     "/photos.json": "http://127.0.0.1:8000",
+  //     "/upload": "http://127.0.0.1:8000",
+  //     '/api': {
+  //       target: 'http://127.0.0.1:8000',
+  //       changeOrigin: true,
+  //     },
+  //   },
+  // },
 })
