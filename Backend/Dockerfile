@@ -14,10 +14,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY app/ ./app/
-COPY pyproject.toml README.md ./
+COPY pyproject.toml ./
+COPY README.md ./ 
 
 # Create photos directory
-# RUN mkdir -p photos
+RUN mkdir -p photos
 
 EXPOSE 8000
 
