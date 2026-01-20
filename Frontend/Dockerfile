@@ -1,13 +1,13 @@
 ### STAGE 1: Build ###
 # Use a Node.js image to build the React app
-FROM node:23-alpine
+FROM node:23-alpine AS builder
 
 # Set the working directory
-WORKDIR /
+WORKDIR /app
 
 # Copy package.json and package-lock.json for dependency installation
 COPY package.json ./
-# COPY package-lock.json ./
+COPY package-lock.json ./
 
 # Install dependencies
 RUN npm install
@@ -16,11 +16,11 @@ RUN npm install
 COPY . .
 
 # Build the application for production
-RUN npm run build -- --mode production
+RUN npm run build
 
 ### STAGE 2: Serve ###
 # Use a lightweight Nginx image to serve the static files
-# FROM nginx:1.25-alpine
+FROM nginx:1.25-alpine
 
 # Copy the built static files from the build stage to the Nginx public html directory
 COPY --from=builder /app/dist /usr/share/nginx/html
