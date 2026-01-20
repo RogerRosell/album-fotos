@@ -20,6 +20,6 @@ COPY pyproject.toml ./
 # Create photos directory
 RUN mkdir -p photos
 
-EXPOSE 8001
+EXPOSE 80
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8003"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
