@@ -1,33 +1,35 @@
-# Stage 1: Build the frontend
-FROM node:20-alpine AS builder
+### STAGE 1: Build ###
+# Use a Node.js image to build the React app
+FROM node:20-alpine AS build
 
+# Set the working directory
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+# Copy package.json and package-lock.json for dependency installation
+COPY package.json ./
+COPY package-lock.json ./
 
 # Install dependencies
-RUN npm ci
+RUN npm install
 
-# Copy source code
+# Copy the rest of the application's source code
 COPY . .
 
-# Build arguments for API URL
-ARG VITE_API_URL
-ENV VITE_API_URL=${VITE_API_URL}
-
-# Build the application
+# Build the application for production
 RUN npm run build
 
-# Stage 2: Serve with nginx
-FROM nginx:alpine
+### STAGE 2: Serve ###
+# Use a lightweight Nginx image to serve the static files
+FROM nginx:1.25-alpine
 
-# Copy custom nginx configuration
+# Copy the built static files from the build stage to the Nginx public html directory
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Copy our custom Nginx configuration file
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy built files from builder stage
-COPY --from=builder /app/dist /usr/share/nginx/html
-
+# Expose port 80 for incoming traffic
 EXPOSE 80
 
+# The default Nginx command will start the server
 CMD ["nginx", "-g", "daemon off;"]

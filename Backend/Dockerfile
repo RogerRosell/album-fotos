@@ -1,25 +1,23 @@
+# Use an official Python runtime as a parent image
 FROM python:3.13-slim
 
-# Install libvips for image processing
-RUN apt-get update && \
-    apt-get install -y libvips-dev && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# Set environment variables to prevent Python from writing .pyc files and to run in unbuffered mode
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy requirements and install dependencies
+# Copy the requirements file into the container and install dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
-COPY app/ ./app/
-COPY pyproject.toml ./
-# COPY README.md ./ 
+# Copy the rest of the application code into the container
+COPY . .
 
-# Create photos directory and initialize photos.json
-RUN mkdir -p photos && echo '{"albums": []}' > photos.json
+# The container will listen on port 8000 for incoming connections
+EXPOSE 8000
 
-EXPOSE 80
-
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+# Command to run the application using Uvicorn.
+# The host 0.0.0.0 makes the server accessible from outside the container.
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
