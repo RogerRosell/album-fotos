@@ -62,7 +62,12 @@ export function UploadForm() {
     dispatch({ type: "SET_STATUS", status: null })
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/upload", {
+      // Use relative URL - nginx will proxy to backend
+      const uploadUrl = import.meta.env.VITE_API_URL 
+        ? `${import.meta.env.VITE_API_URL}/upload`
+        : "/upload"
+      
+      const res = await fetch(uploadUrl, {
         method: "POST",
         body: form,
       })

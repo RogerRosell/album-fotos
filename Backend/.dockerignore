@@ -1,30 +1,18 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
+venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
 .Python
-venv/
-env/
-ENV/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Project specific
-photos.json.tmp
-*.log
-
-# Git
-.git/
+*.so
+*.egg
+*.egg-info
+dist
+build
+.git
 .gitignore
-
-# Documentation
-README.md
+*.md
+.env
+.DS_Store
+photos/
+photos.json

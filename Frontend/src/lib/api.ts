@@ -1,6 +1,7 @@
 import type { PhotosIndex } from "@/types/photos"
 
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000"
+// Use environment variable if set, otherwise use relative URLs (works with nginx proxy)
+const API_URL = import.meta.env.VITE_API_URL || ""
 
 export async function fetchPhotosIndex(): Promise<PhotosIndex> {
   const res = await fetch(`${API_URL}/api/photos`, {
