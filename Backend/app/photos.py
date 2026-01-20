@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException
 
 router = APIRouter(prefix="/api")
 
-PHOTOS_INDEX = Path("/app/photos.json")
+PHOTOS_INDEX = Path("photos.json")
 
 @router.get("/photos")
 # def read_root():
