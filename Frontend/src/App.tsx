@@ -3,7 +3,7 @@ import type { Album } from "@/types/photos"
 import { fetchPhotosIndex } from "@/lib/api"
 import { UploadForm } from "@/components/UploadForm"
 import { AlbumList } from "@/components/AlbumList"
-import { PhotoGrid } from "@/components/Photogrid"
+import { PhotoGrid } from '@/components/PhotoGrid'
 
 function App() {
   const [albums, setAlbums] = useState<Album[]>([])
