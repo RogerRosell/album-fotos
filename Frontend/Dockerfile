@@ -1,13 +1,13 @@
 ### STAGE 1: Build ###
 # Use a Node.js image to build the React app
-FROM node:20-alpine AS builder
+FROM node:23-alpine
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /
 
 # Copy package.json and package-lock.json for dependency installation
 COPY package.json ./
-COPY package-lock.json ./
+# COPY package-lock.json ./
 
 # Install dependencies
 RUN npm install
