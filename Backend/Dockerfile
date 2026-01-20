@@ -17,7 +17,7 @@ COPY app/ ./app/
 COPY pyproject.toml README.md ./
 
 # Create photos directory
-RUN mkdir -p photos
+# RUN mkdir -p photos
 
 EXPOSE 8000
 
