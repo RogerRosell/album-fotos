@@ -7,12 +7,13 @@ router = APIRouter(prefix="/api")
 PHOTOS_INDEX = Path("photos.json")
 
 @router.get("/photos")
-def read_root():
-    return {"Hello": "World"}
-# async def get_photos():
-#     """Return the photos index"""
-#     if not PHOTOS_INDEX.exists():
-#         raise HTTPException(status_code=404, detail="Photos index not found. Run indexing first.")
+# def read_root():
+#     return {"Hello": "World"}
+async def get_photos():
+    """Return the photos index"""
+    if not PHOTOS_INDEX.exists():
+        # raise HTTPException(status_code=404, detail="Photos index not found. Run indexing first.")
+        return {"photos.json": "not found"}
     
-#     with PHOTOS_INDEX.open("r", encoding="utf-8") as f:
-#         return json.load(f)
+    with PHOTOS_INDEX.open("r", encoding="utf-8") as f:
+        return json.load(f)
