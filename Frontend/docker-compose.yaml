@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  frontend:
+    build: .
+    container_name: album-fotos-frontend
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API_URL=http://backend:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - album-fotos-network
+
+  backend:
+    image: album-fotos-backend:latest
+    container_name: album-fotos-backend
+    ports:
+      - "8000:80"
+    volumes:
+      - ../backend/photos:/app/photos
+    environment:
+      - PHOTOS_ROOT=/app/photos
+    restart: unless-stopped
+    networks:
+      - album-fotos-network
+
+networks:
+  album-fotos-network:
+    driver: bridge
