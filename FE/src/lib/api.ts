@@ -4,7 +4,7 @@ import type { PhotosIndex } from "@/types/photos"
 const API_URL = import.meta.env.VITE_API_URL || ""
 
 export async function fetchPhotosIndex(): Promise<PhotosIndex> {
-  const res = await fetch(`${API_URL}:8000/api/photos`, {
+  const res = await fetch(`${API_URL}/api/photos`, {
     cache: "no-cache",
   })
 
