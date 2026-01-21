@@ -1,9 +1,14 @@
 # Use an official Python runtime as a parent image
 FROM python:3.13-slim
 
+# Install system dependencies for libvips
+RUN apt-get update && apt-get install -y \
+    libvips-dev \
+    && rm -rf /var/lib/apt/lists/*
+
 # Set environment variables to prevent Python from writing .pyc files and to run in unbuffered mode
-# ENV PYTHONDONTWRITEBYTECODE=1
-# ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 # Set the working directory in the container
 WORKDIR /app
@@ -20,4 +25,4 @@ EXPOSE 8000
 
 # Command to run the application using Uvicorn.
 # The host 0.0.0.0 makes the server accessible from outside the container.
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

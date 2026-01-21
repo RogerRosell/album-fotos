@@ -5,12 +5,12 @@ FROM node:23-alpine AS builder
 # Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json for dependency installation
+# Copy package.json and yarn.lock for dependency installation
 COPY package.json ./
-COPY package-lock.json ./
+COPY yarn.lock ./
 
 # Install dependencies
-RUN npm install
+RUN yarn install --frozen-lockfile
 
 # Copy the rest of the application's source code
 COPY . .
