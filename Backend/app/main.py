@@ -11,7 +11,7 @@ app = FastAPI(title="Family Photo Backend")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["https://album.rrc.gdn"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
