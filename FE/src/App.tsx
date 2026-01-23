@@ -21,9 +21,7 @@ function App() {
   }
   return (
     <div className="p-6 max-w-7xl mx-auto space-y-8">
-      <h1>Hello</h1>
       <h1 className="text-2xl font-semibold">Family Photos</h1>
-      Hello!
       {selectedAlbum ? (
         <PhotoGrid
           album={selectedAlbum}

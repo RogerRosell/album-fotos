@@ -8,7 +8,7 @@ interface AlbumListProps {
 export function AlbumList({ albums, onSelect }: AlbumListProps) {
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      {albums.map(album => (
+      {albums && albums.map(album => (
         <li
           key={album.id}
           onClick={() => onSelect(album)}

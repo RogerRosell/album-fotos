@@ -1,0 +1,33 @@
+Backend/photos
+Backend/.env
+Backend/app/__pycache__
+Backend/photos.json
+
+Backend/*.pyc
+
+# Frontend
+FE/.env
+# Logs
+FE/logs
+FE/*.log
+FE/npm-debug.log*
+FE/yarn-debug.log*
+FE/yarn-error.log*
+FE/npm-debug.log*
+FE/lerna-debug.log*
+
+FE/node_modules
+FE/dist
+FE/dist-ssr
+FE/*.local
+
+# Editor directories and files
+FE/.vscode/*
+FE/!.vscode/extensions.json
+FE/.idea
+FE/.DS_Store
+FE/*.suo
+FE/*.ntvs*
+FE/*.njsproj
+FE/*.sln
+FE/*.sw?

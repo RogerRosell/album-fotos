@@ -12,7 +12,7 @@ export function PhotoGrid({ album, onBack }: PhotoGridProps) {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-4">
-        <Button variant="outline" onClick={onBack}>
+        <Button variant="default" onClick={onBack}>
           ← Back
         </Button>
 
