@@ -5,7 +5,7 @@ import shutil
 from app.config import PHOTOS_ROOT, SEQ_WIDTH
 from app.image_processing import convert_to_webp
 from app.utils import normalise_location
-from app.indexing import build_index
+from app.indexing import main as rebuild_index
 
 router = APIRouter()
 
@@ -49,7 +49,7 @@ async def upload_photos(
 
         saved.append(filename)
     
-    build_index()
+    rebuild_index()
 
     return {
         "album": folder_name,
