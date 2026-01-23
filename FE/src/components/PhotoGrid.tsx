@@ -1,5 +1,5 @@
 import type { Album } from "@/types/photos"
-import { Button } from "@/components/button"
+import { Button } from "@/components/ui/button"
 
 interface PhotoGridProps {
   album: Album
