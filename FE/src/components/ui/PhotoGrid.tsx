@@ -6,6 +6,8 @@ interface PhotoGridProps {
   onBack: () => void
 }
 
+const IMAGES_URL = import.meta.env.VITE_API_URL || ""
+
 export function PhotoGrid({ album, onBack }: PhotoGridProps) {
   return (
     <div className="space-y-4">
@@ -26,7 +28,7 @@ export function PhotoGrid({ album, onBack }: PhotoGridProps) {
         {album.images.map(image => (
           <img
             key={image}
-            src={`/photos/${album.path}/${image}`}
+            src={`${IMAGES_URL}/photos/${album.path}/${image}`}
             alt=""
             loading="lazy"
             className="w-full aspect-square object-cover rounded"
