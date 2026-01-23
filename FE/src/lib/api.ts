@@ -1,7 +1,7 @@
 import type { PhotosIndex } from "@/types/photos"
 
 // Use environment variable if set, otherwise use relative URLs (works with nginx proxy)
-const API_URL = import.meta.env.VITE_API_URL || ""
+const API_URL = import.meta.env.SERVICE_URL_BACKEND || ""
 
 export async function fetchPhotosIndex(): Promise<PhotosIndex> {
   const res = await fetch(`${API_URL}/api/photos`, {
